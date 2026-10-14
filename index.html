@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BijEssie - Groeistrategie & Nieuwe Inzichten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF6F0;
+  --cream-dark: #F0E8DC;
+  --brown: #3D2E22;
+  --brown-soft: #6B5A4A;
+  --green: #7A8B5C;
+  --green-dark: #5F6E47;
+  --green-light: #E4E8D8;
+  --terra: #C17B5C;
+  --terra-dark: #A86544;
+  --terra-light: #F2DDD0;
+  --white: #FFFFFF;
+  --border: #E8DFD3;
+  --shadow: 0 4px 24px rgba(61,46,34,0.08);
+  --shadow-lg: 0 8px 40px rgba(61,46,34,0.12);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--brown);
+  line-height: 1.7;
+  font-size: 16px;
+}
+h1,h2,h3,h4 { font-family: 'Fraunces', serif; color: var(--brown); line-height:1.3; }
+h2 { font-size: 2rem; margin-bottom: 0.8rem; }
+h3 { font-size: 1.4rem; margin-bottom: 0.6rem; }
+h4 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+p { margin-bottom: 1rem; }
+a { color: var(--terra-dark); text-decoration: none; }
+
+/* NAV */
+nav {
+  position: sticky; top:0; z-index:100;
+  background: var(--brown);
+  padding: 0.7rem 1.5rem;
+  display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+nav a {
+  color: var(--cream); font-size: 0.82rem; font-weight: 600;
+  padding: 0.4rem 0.8rem; border-radius: 20px; transition: background 0.2s;
+}
+nav a:hover { background: var(--terra); }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+  color: var(--cream);
+  padding: 4rem 1.5rem 3.5rem;
+  text-align: center;
+}
+.hero h1 { color: var(--cream); font-size: 2.6rem; margin-bottom: 0.5rem; }
+.hero .subtitle { font-size: 1.15rem; opacity: 0.92; max-width: 640px; margin: 0 auto 1.5rem; }
+.hero .tag {
+  display: inline-block; background: var(--terra); color: var(--cream);
+  padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;
+}
+.hero .meta { font-size: 0.85rem; opacity: 0.8; }
+
+/* SECTIONS */
+section { padding: 3rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+.section-num {
+  display: inline-block; background: var(--terra-light); color: var(--terra-dark);
+  font-family: 'Nunito',sans-serif; font-weight: 800; font-size: 0.75rem;
+  padding: 0.25rem 0.8rem; border-radius: 12px; margin-bottom: 0.6rem;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.section-intro { font-size: 1.05rem; color: var(--brown-soft); max-width: 760px; margin-bottom: 2rem; }
+
+/* CARDS */
+.card {
+  background: var(--white); border-radius: 16px; padding: 1.8rem;
+  box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 1.5rem;
+}
+.card-green { border-left: 5px solid var(--green); }
+.card-terra { border-left: 5px solid var(--terra); }
+.card-brown { border-left: 5px solid var(--brown); }
+
+/* GRID */
+.grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.grid-3 { display:grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+@media(max-width:768px){ .grid-2,.grid-3{ grid-template-columns:1fr; } }
+
+/* TABLE */
+table { width:100%; border-collapse: collapse; font-size: 0.9rem; }
+th { background: var(--brown); color: var(--cream); padding: 0.8rem; text-align: left; font-weight: 700; }
+td { padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: var(--cream-dark); }
+.table-wrap { overflow-x:auto; border-radius: 12px; box-shadow: var(--shadow); }
+
+/* OFFER CARDS */
+.offer-card {
+  background: var(--white); border-radius: 20px; overflow: hidden;
+  box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+}
+.offer-head { padding: 1.5rem; color: var(--cream); }
+.offer-1 .offer-head { background: linear-gradient(135deg, var(--green), var(--green-dark)); }
+.offer-2 .offer-head { background: linear-gradient(135deg, var(--terra), var(--terra-dark)); }
+.offer-3 .offer-head { background: linear-gradient(135deg, var(--brown-soft), var(--brown)); }
+.offer-head h3 { color: var(--cream); margin-bottom: 0.3rem; }
+.offer-head .price { font-size: 1.6rem; font-weight: 800; font-family:'Nunito',sans-serif; }
+.offer-body { padding: 1.5rem; }
+.offer-body h4 { color: var(--green-dark); margin-top: 1rem; }
+.offer-2 .offer-body h4 { color: var(--terra-dark); }
+.offer-3 .offer-body h4 { color: var(--brown); }
+.offer-body h4:first-child { margin-top:0; }
+.offer-body p, .offer-body li { font-size: 0.92rem; }
+.offer-body ul { list-style: none; padding-left: 0; }
+.offer-body li { padding-left: 1.3rem; position: relative; margin-bottom: 0.4rem; }
+.offer-body li::before { content: "✦"; position:absolute; left:0; color: var(--terra); }
+
+/* COPY BLOCK */
+.copy-block {
+  background: var(--cream-dark); border-radius: 12px; padding: 1.2rem 1.4rem;
+  margin: 0.8rem 0; border-left: 4px solid var(--terra);
+}
+.copy-block .label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--terra-dark); margin-bottom: 0.3rem; }
+.copy-block .content { font-size: 0.95rem; color: var(--brown); }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content:""; position:absolute; left: 0.5rem; top:0; bottom:0; width: 3px; background: var(--green-light); border-radius: 3px; }
+.timeline-item { position: relative; margin-bottom: 2rem; }
+.timeline-item::before { content:""; position:absolute; left: -1.55rem; top: 0.3rem; width: 14px; height: 14px; border-radius: 50%; background: var(--terra); border: 3px solid var(--cream); }
+.timeline-week { font-family:'Nunito',sans-serif; font-weight: 800; color: var(--terra-dark); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.timeline-item h3 { font-size: 1.2rem; margin: 0.2rem 0 0.5rem; }
+.timeline-item .focus { font-style: italic; color: var(--brown-soft); font-size: 0.9rem; margin-bottom: 0.6rem; }
+.timeline-item ul { list-style: none; padding-left: 0; }
+.timeline-item li { font-size: 0.88rem; padding-left: 1.2rem; position: relative; margin-bottom: 0.3rem; }
+.timeline-item li::before { content:"→"; position:absolute; left:0; color: var(--green); font-weight: 700; }
+.timeline-item .metric { background: var(--green-light); border-radius: 8px; padding: 0.5rem 0.8rem; margin-top: 0.5rem; font-size: 0.82rem; font-weight: 600; color: var(--green-dark); }
+
+/* KPI */
+.kpi-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-top: 1rem; }
+.kpi-box { background: var(--white); border-radius: 12px; padding: 1.2rem; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.kpi-box .num { font-size: 1.8rem; font-weight: 800; font-family:'Nunito',sans-serif; color: var(--terra-dark); }
+.kpi-box .label { font-size: 0.8rem; color: var(--brown-soft); margin-top: 0.2rem; }
+
+/* ALERT */
+.alert { background: var(--terra-light); border-radius: 12px; padding: 1.2rem 1.4rem; border-left: 5px solid var(--terra); margin: 1rem 0; }
+.alert strong { color: var(--terra-dark); }
+.alert-green { background: var(--green-light); border-left-color: var(--green); }
+.alert-green strong { color: var(--green-dark); }
+
+/* DIVIDER */
+.divider { height: 1px; background: var(--border); margin: 2rem 0; }
+
+/* FOOTER */
+footer { background: var(--brown); color: var(--cream); padding: 2.5rem 1.5rem; text-align: center; }
+footer h3 { color: var(--cream); }
+footer p { opacity: 0.8; font-size: 0.9rem; }
+
+/* MISC */
+.badge { display:inline-block; padding: 0.2rem 0.7rem; border-radius: 10px; font-size: 0.75rem; font-weight: 700; }
+.badge-red { background: #F8D7D0; color: #A04030; }
+.badge-green { background: var(--green-light); color: var(--green-dark); }
+.badge-amber { background: #F5E6C8; color: #8A6D20; }
+.tag-line { font-size: 0.85rem; color: var(--brown-soft); font-style: italic; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#analyse">1. Inzichten</a>
+  <a href="#concurrentie">2. Concurrentie</a>
+  <a href="#strategie">3. Strategie</a>
+  <a href="#offers">4. Kernoffers</a>
+  <a href="#b2b">5. B2B Pitch</a>
+  <a href="#webcopy">6. Website Copy</a>
+  <a href="#kalender">7. 8-Week Kalender</a>
+  <a href="#kpi">8. KPI Dashboard</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="tag">Groeistrategie & Nieuwe Inzichten</div>
+  <h1>BijEssie</h1>
+  <p class="subtitle">Het pedagogisch ontdekatelier van Delft. Kansen, positioning, en een plan om door te groeien.</p>
+  <p class="meta">Inzichten opgesteld 22 september 2026 · Oude Langendijk, Delft · Eigenaar: Esther de Smet</p>
+</div>
+
+<!-- DEEL 1: INZICHTEN -->
+<section id="analyse">
+  <span class="section-num">Deel 1</span>
+  <h2>Nieuwe Inzichten: Waar BijEssie staat</h2>
+  <p class="section-intro">Een frisse blik op het bedrijf, de eigenaar, de zichtbaarheid, en de kansen die er liggen. Niet een diagnose van problemen, maar een kaart van waar de groei zit.</p>
+
+  <div class="grid-2">
+    <div class="card card-green">
+      <h3>Het bedrijf</h3>
+      <p><strong>BijEssie</strong> is een speel- en ontdekatelier voor kinderen in het hart van Delft (Oude Langendijk 22). Het concept: kinderen spelen en knutselen terwijl ouders ontspannen met koffie. Doelgroep 0-9 jaar, entree 6,50 per kind.</p>
+      <p>De website draait op Jimdo en leunt zwaar op AI-gegenererde afbeeldingen (ChatGPT-bestaandsnamen) in plaats van echte foto's. Dat is de eerste grote kans: echte sfeerbeelden veranderen hoe ouders het bedrijf ervaren.</p>
+    </div>
+    <div class="card card-terra">
+      <h3>De eigenaar</h3>
+      <p><strong>Esther de Smet</strong> is directeur en enige drijvende kracht. 29 jaar onderwijservaring, Pabo-leerkracht, specialist jonge kind, en holistisch therapeut (Zoma). Geen horeca-achtergrond, wel een schat aan pedagogische ervaring.</p>
+      <p>Haar onderwijsachtergrond is het grootste verborgen asset van het bedrijf. Dat is precies wat BijEssie moet claimen als differentiator, niet de knutseltafel.</p>
+    </div>
+  </div>
+
+  <div class="card card-brown">
+    <h3>Zichtbaarheid en groeikansen</h3>
+    <div class="grid-3">
+      <div>
+        <h4>Instagram</h4>
+        <p>@bijessie_ · 1.462 volgers · 284 volgend</p>
+        <p>Posts krijgen 4 likes, geen comments. Dat is 0,3% engagement. Het kanaal leeft, maar de content bereikt de doelgroep niet optimaal. Grote ruimte voor groei met de juiste content.</p>
+      </div>
+      <div>
+        <h4>Reviews</h4>
+        <p>1 TripAdvisor review · 0 Facebook reviews · 0 Google reviews zichtbaar</p>
+        <p>Bijna onvindbar op Google Maps waar ouders zoeken naar "speeltuin Delft." Eén van de snelste winstacties: reviews verzamelen.</p>
+      </div>
+      <div>
+        <h4>Content</h4>
+        <p>AI-genererde posters in plaats van foto's. Geen echte sfeerbeelden. Ouders kunnen niet voelen wat ze kopen. Echte foto's zijn de snelste conversie-lift.</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="grid-3">
+      <div>
+        <h4>Prijspositionering</h4>
+        <p>Strippenkaart 5x voor 25 i.p.v. 32,50 (23% korting). "September actie maand." Giveaway. De prijspositionering trekt nu prijsbewust besoekers, niet de bewuste ouders die de pedagogische waarde herkent.</p>
+      </div>
+      <div>
+        <h4>Aanbod-focus</h4>
+        <p>Reiki/energiebehandelingen, meditatiavonden, webshop, mama-avonden, oppasservice. Tien verschillende richtingen. Focus op drie kernoffers creïrert helderheid voor de bezoeker.</p>
+      </div>
+      <div>
+        <h4>Openingstijden</h4>
+        <p>30 uur per week, wisselend, vaak gesloten voor partijen en evenementen. Vaste openingstijden met een vast ritueel bouwen gewoonte en herhalingsbezoek.</p>
+      </div>
+    </div>
+  </div>
+</section>
